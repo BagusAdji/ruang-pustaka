@@ -1,0 +1,716 @@
+/* --- RESET & VARIABLES --- */
+:root {
+    --primary-dark: #1e3a8a;
+    /* blue-900 */
+    --primary-blue: #2563eb;
+    /* blue-600 */
+    --primary-light: #BBE9FF;
+    --bg-light: #EFF6FF;
+    /* blue-50 approx */
+    --bg-slate: #F8FAFC;
+    --text-dark: #334155;
+    /* slate-700 */
+    --text-light: #64748b;
+    /* slate-500 */
+    --white: #ffffff;
+    --footer-bg: #0f4c75;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --container-width: 1360px;
+    /* UPDATED: Diperlebar agar konten lebih menyebar ke kanan/kiri */
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.5;
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- UTILITIES --- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: #172554;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.btn-white:hover {
+    background-color: #f1f5f9;
+}
+
+
+/* --- NAVBAR --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--primary-light);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    /* UPDATED: justify-content dihapus agar bisa kustom posisi pakai margin */
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    margin-right: auto;
+    /* UPDATED: Ini kunci agar logo di kiri mentok, sisanya terdorong ke kanan mentok */
+}
+
+.logo-icon {
+    display: flex;
+    max-width: 50px;
+}
+
+.logo-text {
+    line-height: 1;
+}
+
+.brand-top {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-dark);
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-right: 3rem;
+    /* UPDATED: Memberi jarak antara menu dan profil di sisi kanan */
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #1e3a8a;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+.search-icon {
+    color: #94a3b8;
+    /* Warna abu-abu soft */
+    font-size: 1rem;
+    /* Ukuran ikon */
+    margin-right: 10px;
+    /* Jarak ikon ke tulisan ketik */
+}
+
+/* search */
+/* --- SEARCH BAR STYLE --- */
+.search-desktop {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    /* Membuat bentuk kapsul/oval */
+    border: 1px solid #cbd5e1;
+    margin-right: 1.5rem;
+    /* Jarak ke profil */
+    width: 250px;
+    /* Lebar search bar */
+    transition: all 0.3s ease;
+}
+
+/* Efek saat diklik (Focus) */
+.search-desktop:focus-within {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--text-light);
+    margin-right: 0.5rem;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+/* UPDATE JARAK NAV-LINKS */
+/* Ubah margin-right pada .nav-links yang lama agar jaraknya pas dengan search bar */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-right: 1.5rem;
+    /* Dikurangi dari 3rem menjadi 1.5rem */
+}
+
+/* RESPONSIVE: Sembunyikan Search Desktop di HP */
+@media (max-width: 900px) {
+
+    .nav-links,
+    .user-profile,
+    .search-desktop {
+        /* Tambahkan ini agar search hilang di layar kecil */
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    /* Profil akan otomatis ada di paling kanan karena logo margin-right: auto */
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-align: right;
+}
+
+.user-avatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--white);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    margin-left: auto;
+    /* UPDATED: Agar tombol menu mobile juga ada di kanan */
+}
+
+/* --- HERO BANNER STYLE --- */
+.hero-banner {
+    position: relative;
+    /* Ini kuncinya: 25vh artinya 25% dari tinggi layar (1/4 halaman) */
+    height: 25vh;
+    min-height: 200px;
+    /* Batas minimal agar tidak terlalu gepeng di HP */
+    width: 100%;
+
+    /* Ganti URL gambar di bawah sesuai nama file gambarmu */
+    background-image: url('aset/gmbr perpus.jpg');
+    background-size: cover;
+    /* Agar gambar full memenuhi kotak */
+    background-position: center;
+    /* Fokus gambar di tengah */
+
+    /* Flexbox untuk menengahkan teks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Lapisan Gelap (Overlay) agar tulisan terbaca jelas */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Hitam transparan 50% */
+    z-index: 1;
+}
+
+/* Tulisan di tengah */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Agar tulisan ada di atas lapisan gelap */
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    /* Ukuran teks besar */
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Bayangan teks agar kontras */
+    margin: 0;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+        /* Tulisan mengecil sedikit di HP */
+    }
+}
+
+/* --- QUICK ACCESS STYLES --- */
+.quick-access-section {
+    margin: 40px auto;
+    /* Jarak atas bawah */
+    padding: 0 20px;
+}
+
+.qa-header {
+    margin-bottom: 30px;
+    text-align: center;
+    /* INI KUNCINYA: Membuat teks rata tengah */
+}
+
+/* Pastikan styling h2 dan p di bawahnya tetap ada */
+.qa-header h2 {
+    font-size: 1.8rem;
+    /* Sedikit diperbesar agar lebih gagah */
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.qa-header p {
+    color: #64748b;
+    font-size: 1rem;
+    max-width: 600px;
+    /* Membatasi lebar teks agar tidak terlalu panjang ke samping */
+    margin: 0 auto;
+    /* Posisi otomatis di tengah jika ada max-width */
+}
+
+/* Grid Layout 4 Kolom */
+.qa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Card Style */
+.qa-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    /* Garis tipis abu */
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Rata kiri sesuai gambar */
+}
+
+/* Efek Hover (Naik sedikit saat ditunjuk mouse) */
+.qa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: #2563eb;
+}
+
+/* Icon Box Style */
+.qa-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #eff6ff;
+    /* Biru muda sekali */
+    color: #2563eb;
+    /* Ikon biru */
+    border-radius: 8px;
+    /* Sedikit kotak membulat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+}
+
+.qa-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.qa-card p {
+    font-size: 0.85rem;
+    color: #64748b;
+    /* Warna teks abu */
+    line-height: 1.5;
+}
+
+/* Responsif (Agar rapi di HP) */
+@media (max-width: 900px) {
+    .qa-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Tablet jadi 2 kolom */
+    }
+}
+
+@media (max-width: 600px) {
+    .qa-grid {
+        grid-template-columns: 1fr;
+        /* HP jadi 1 kolom */
+    }
+}
+
+/* --- HEADER & FILTER (Sama seperti sebelumnya) --- */
+.collection-header h2 {
+    font-size: 2rem;
+    color: #002366;
+    /* Biru Tua */
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 24px;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    border-radius: 50px;
+    /* Bentuk Kapsul */
+    color: #64748b;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: #002366;
+    color: #fff;
+    border-color: #002366;
+}
+
+.filter-btn:hover {
+    border-color: #002366;
+    color: #002366;
+}
+
+
+.book-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+}
+
+.book-item.out-of-stock .card-modern {
+    opacity: 0.7;
+    filter: grayscale(100%);
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.card-cover-modern {
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.badge-overlay span {
+    background-color: #ff4d4d;
+    /* Warna merah */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transform: rotate(-10deg);
+    /* Efek miring sedikit biar estetik */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Helper text colors */
+.text-danger {
+    color: #dc3545;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+/* --- KARTU BUKU MODERN --- */
+.card-modern {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+
+}
+
+.card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-cover-modern {
+    position: relative;
+    width: 100%;
+    padding-top: 150%;
+    background-color: #f8fafc;
+}
+
+.card-cover-modern img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    z-index: 2;
+}
+
+.badge-green {
+    background-color: #22c55e;
+}
+
+
+.badge-blue {
+    background-color: #3b82f6;
+}
+
+.card-body-modern {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.card-body-modern h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 5px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Batas jumlah baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-body-modern p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .book-grid-modern {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .book-grid-modern {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    border: 2px dashed #cbd5e1;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.empty-icon-box {
+    font-size: 3rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+    background: #e2e8f0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.btn-reset-search {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-reset-search:hover {
+    background-color: #1d4ed8;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

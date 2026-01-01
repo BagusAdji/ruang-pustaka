@@ -1,0 +1,242 @@
+/* Layout Utama */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- STATISTIC CARDS --- */
+.card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon Styles pada Card */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon span {
+    font-size: 32px;
+}
+
+/* Varian Warna Card */
+.card-blue .card-icon { background: #e0f2fe; color: #0284c7; }
+.card-orange .card-icon { background: #ffedd5; color: #c2410c; }
+.card-green .card-icon { background: #dcfce7; color: #16a34a; }
+.card-red .card-icon { background: #fee2e2; color: #dc2626; }
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .title {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.card .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.card .unit {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* --- ALERT SECTION --- */
+.alert-box {
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #9f1239;
+    margin-bottom: 20px;
+}
+
+.icon-alert {
+    font-size: 28px;
+    color: #e11d48;
+}
+
+.alert-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.alert-text p {
+    font-size: 14px;
+    color: #881337;
+}
+
+.btn-check {
+    margin-left: auto;
+    background: #e11d48;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-check:hover {
+    background: #be123c;
+}
+
+
+/* --- TABLE STYLING --- */
+.table-peminjaman {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    overflow: hidden;
+}
+
+.peminjaman-header {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.peminjaman-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.view-all {
+    color: #3b82f6;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th {
+    background: #f8fafc;
+    padding: 15px 25px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+.custom-table td {
+    padding: 18px 25px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #334155;
+}
+
+.custom-table tr:hover {
+    background-color: #f8fafc;
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* User Profile in Table */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-placeholder {
+    width: 35px;
+    height: 35px;
+    background: #eff6ff;
+    color: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.username {
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.text-muted {
+    color: #64748b;
+}
+
+/* Button Icon */
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #64748b;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.btn-icon:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.btn-icon span {
+    font-size: 20px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+    padding: 30px;
+}

@@ -1,0 +1,342 @@
+/* --- Global & Layout --- */
+:root {
+    --bg-color: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --primary-color: #3B82F6; /* Biru seperti tombol Mark as Returned */
+    --text-dark: #1E293B;
+    --text-gray: #64748B;
+    --border-color: #E2E8F0;
+    --danger-bg: #FEE2E2;
+    --danger-text: #EF4444;
+    --success-bg: #DCFCE7;
+    --success-text: #16A34A;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif; /* Pastikan font ini di-load */
+    color: var(--text-dark);
+}
+
+.loan-container {
+    max-width: 1200px;
+    margin: 0 0;
+    padding: 20px;
+}
+
+/* --- Header Section --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.breadcrumbs {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: var(--text-gray);
+}
+
+.page-title h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-white {
+    background: white;
+    border-color: var(--border-color);
+    color: var(--text-dark);
+}
+
+.btn-white:hover {
+    background: #f1f5f9;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-danger {
+    background: var(--danger-text);
+    color: white;
+}
+
+/* --- Grid Layout --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Kiri lebih lebar dari kanan */
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Cards --- */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.link-arrow {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- Book Details Section --- */
+.book-info-wrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.book-cover {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.book-meta {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.meta-item label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.meta-item p {
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.book-title {
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+}
+
+.book-title h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.book-category {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+}
+
+/* --- Timeline Section --- */
+.timeline-track {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 30px 0;
+}
+
+.timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-color);
+    z-index: 0;
+}
+
+.timeline-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: white;
+    padding: 0 10px;
+}
+
+.step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #EFF6FF;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    border: 2px solid white;
+}
+
+.step-icon.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.step-icon.danger {
+    background: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+.step-date {
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: block;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+}
+
+.alert-box {
+    background: var(--danger-bg);
+    border: 1px solid #FECACA;
+    color: #991B1B;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* --- Right Column (Borrower & Financials) --- */
+.borrower-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #E2E8F0;
+    object-fit: cover;
+}
+
+.borrower-info h4 {
+    margin: 0 0 4px;
+}
+
+.status-badge {
+    background: var(--success-bg);
+    color: var(--success-text);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.contact-list .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    color: var(--text-gray);
+    margin-top: 3px;
+}
+
+.contact-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+}
+
+/* --- Financials --- */
+.fine-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge-danger {
+    background: var(--danger-bg);
+    color: var(--danger-text);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.fine-desc {
+    color: var(--text-gray);
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+}
+
+.action-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}

@@ -1,0 +1,648 @@
+/* --- LAYOUT UTAMA --- */
+.container {
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 40px;
+    /* Jarak bawah agar tidak mepet footer */
+}
+
+/* Header menampung Filter & Tombol Tambah */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    /* Agar turun ke bawah jika layar kecil */
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Alignment atas agar rapi */
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* --- FILTER AREA --- */
+.filter-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    /* Ubah ke putih agar lebih bersih */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+/* Pencarian */
+.search-box {
+    display: flex;
+    gap: 5px;
+}
+
+.search-box input {
+    padding: 10px 15px;
+    width: 200px;
+    /* Ukuran fix agar tidak terlalu lebar/sempit */
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    background: #4A90E2;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.search-box button:hover {
+    background: #357ABD;
+}
+
+/* Filter Dropdown (Kategori & Stok) */
+.filter-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.filter-box select {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-filter {
+    padding: 10px 20px;
+    background: #27ae60;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-filter:hover {
+    background: #219150;
+}
+
+.btn-reset {
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.btn-reset:hover {
+    background: #c0392b;
+}
+
+/* Tombol Tambah Buku (Di luar filter container) */
+.btn-add {
+    background: #4A7DFF;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    /* Mencegah teks turun baris */
+    box-shadow: 0 4px 10px rgba(74, 125, 255, 0.2);
+    transition: 0.2s;
+    height: fit-content;
+}
+
+.btn-add:hover {
+    background: #355FD6;
+    transform: translateY(-2px);
+}
+
+/* --- TABEL --- */
+.table-wrapper {
+    background: white;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    overflow-x: auto;
+    border: 1px solid #eee;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    /* Mencegah tabel gepeng di HP */
+}
+
+.modern-table thead {
+    background: #f8f9fa;
+}
+
+.modern-table th {
+    padding: 15px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    text-align: left;
+}
+
+.modern-table td {
+    padding: 15px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f1f1;
+    color: #444;
+    vertical-align: middle;
+    max-width: 300px;
+    min-width: 10px;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Cover Image & Barcode */
+.cover-img {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.isbn {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 12px;
+}
+
+/* Action Buttons Table */
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #e2e6ea;
+    color: #2d3436;
+    margin-right: 5px;
+}
+
+.btn-edit:hover {
+    background: #d1d8e0;
+}
+
+.btn-delete {
+    background: #ffecec;
+    color: #d63031;
+}
+
+.btn-delete:hover {
+    background: #ff7675;
+    color: white;
+}
+
+/* --- FIX PAGINATION (PENTING) --- */
+.pagination-wrapper {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    /* Posisi tengah */
+    width: 100%;
+}
+
+/* --- PAGINATION (CSS BIASA / VANILLA) --- */
+.pagination-wrapper {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    /* Posisi di tengah */
+    width: 100%;
+}
+
+/* Container utama Navigasi dari Laravel */
+.pagination-wrapper nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Sembunyikan teks "Showing 1 to 10 of..." bawaan Laravel yang sering bikin berantakan */
+/* Jika kamu ingin menampilkannya, hapus display: none; */
+.pagination-wrapper nav>div:first-child {
+    display: none;
+}
+
+/* Container Tombol Angka & Panah */
+.pagination-wrapper nav>div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: none !important;
+    /* Hapus shadow bawaan tailwind jika ada */
+}
+
+/* GAYA TOMBOL (Link & Span)
+   Menargetkan tag <a> dan <span> di dalam pagination
+*/
+.pagination-wrapper a,
+.pagination-wrapper span[aria-current="page"],
+/* Halaman aktif */
+.pagination-wrapper span[aria-disabled="true"]
+
+/* Tombol disabled (ex: prev di hal 1) */
+    {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 35px;
+    /* Lebar minimum agar kotak angka rapi */
+    height: 35px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    /* Sudut melengkung */
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover Effect pada Link */
+.pagination-wrapper a:hover {
+    background-color: #f1f2f6;
+    color: #333;
+    border-color: #ccc;
+}
+
+/* GAYA HALAMAN AKTIF (Biasanya tag span) */
+.pagination-wrapper span[aria-current="page"] {
+    background-color: #4A90E2;
+    /* Warna Biru Utama */
+    color: #fff;
+    border-color: #4A90E2;
+    z-index: 1;
+}
+
+/* GAYA TOMBOL DISABLED (Contoh: 'Previous' saat di halaman 1) */
+.pagination-wrapper span[aria-disabled="true"] {
+    background-color: #f9f9f9;
+    color: #aaa;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+
+
+.pagination-wrapper svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: inherit;
+    /* Mengikuti warna teks tombol */
+}
+
+/* Sembunyikan elemen 'Titik-titik' (...) jika terlalu lebar */
+.pagination-wrapper span[aria-disabled="true"]:not(:first-child):not(:last-child) {
+    border: none;
+    background: transparent;
+}
+
+/* --- MODAL --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 1050;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 30px;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.modal-overlay.show .modal-box {
+    transform: scale(1);
+}
+
+.modal-box h3 {
+    margin: 0 0 10px;
+    color: #2d3436;
+    font-size: 22px;
+}
+
+.modal-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-cancel,
+.btn-confirm {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    flex: 1;
+}
+
+.btn-cancel {
+    background: #f1f2f6;
+    color: #636e72;
+}
+
+.btn-cancel:hover {
+    background: #dfe6e9;
+}
+
+.btn-confirm {
+    background: #ff4757;
+    color: white;
+}
+
+.btn-confirm:hover {
+    background: #ff6b81;
+}
+
+/* --- RESPONSIVE (MOBILE) --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box,
+    .filter-box {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-box input,
+    .filter-box select {
+        width: 100%;
+    }
+
+    .btn-add {
+        text-align: center;
+    }
+}
+
+.modern-form-container {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    /* Shadow halus */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #e2e8f0;
+    /* Border abu-abu muda */
+}
+
+/* =========================================
+   Header
+   ========================================= */
+.form-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 1rem;
+}
+
+.form-header h2 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    /* Teks gelap */
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* =========================================
+   Form Grid System
+   ========================================= */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 Kolom */
+    gap: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   Inputs & Labels
+   ========================================= */
+.form-label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.form-input,
+.form-select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    /* Background input sangat muda */
+    font-size: 1rem;
+    color: #1e293b;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Efek Focus */
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #4361ee;
+    background-color: #ffffff;
+    /* Glow biru transparan */
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.15);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+}
+
+/* Input Readonly */
+.form-input[readonly] {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   Upload & Image Preview
+   ========================================= */
+.upload-area {
+    background-color: #f8fafc;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.upload-area:hover {
+    border-color: #4361ee;
+}
+
+.img-preview-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.img-preview {
+    max-width: 200px;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+}
+
+/* =========================================
+   Buttons & Actions
+   ========================================= */
+.form-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    border: none;
+}
+
+/* Tombol Biru (Primary) */
+.btn-primary {
+    background-color: #4361ee;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(67, 97, 238, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #3a53d0;
+    /* Biru lebih gelap saat hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px -1px rgba(67, 97, 238, 0.5);
+}
+
+/* Tombol Putih (Secondary/Batal) */
+.btn-secondary {
+    background-color: white;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* =========================================
+   Responsive Design (Mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    .modern-form-container {
+        padding: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
