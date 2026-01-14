@@ -303,7 +303,8 @@ img {
     width: 100%;
 
     /* Ganti URL gambar di bawah sesuai nama file gambarmu */
-    background-image: url('aset/gmbr perpus.jpg');
+    /* Inside public/css/style.css */
+    background-image: url('../../../image/gmbr\ perpus.jpg');
     background-size: cover;
     /* Agar gambar full memenuhi kotak */
     background-position: center;
@@ -624,7 +625,8 @@ img {
     margin-bottom: 5px;
     line-height: 1.3;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Batas jumlah baris */
+    -webkit-line-clamp: 2;
+    /* Batas jumlah baris */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

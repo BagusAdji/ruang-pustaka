@@ -119,6 +119,12 @@
                                     <i data-lucide="check-circle" class="stat-icon icon-green"></i>
                                 </div>
                             @endif
+                            <span class="stat-label text-gray-500"  >Denda Lunas</span>
+                                <div class="stat-value-row">
+                                    <span class="stat-num text-green" >Rp
+                                        {{ number_format($totalDenda, 0, ',', '.') }}</span>
+                                    <i data-lucide="check-circle" class="stat-icon icon-green"></i>
+                                </div>
                         </div>
                     </div>
 

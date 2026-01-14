@@ -45,7 +45,7 @@
                     <i class="fa-solid fa-tablet-screen-button"></i>
                 </div>
                 <h3>E-Perpus</h3>
-                <p>Baca buku digital lewat HP atau tablet di mana saja.</p>
+                <p>baca Buku digital lewat HP atau tablet di mana saja.</p>
             </div>
 
             <div class="qa-card">
